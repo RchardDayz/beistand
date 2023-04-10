@@ -2,7 +2,9 @@
 from django.urls import path
 from inicio import views
 
+# app_name = 'inicio'
+
 urlpatterns = [
-    path('primer-template', views.nombre_de_la_funcion),
+    path('', views.inicio),
     
 ]
