@@ -30,5 +30,6 @@ def crear_contacto(request):
     return render(request, r'inicio/contacto.html', {'formulario': formulario})
 
 def lista_contactos(request):
-        return render(request, r'inicio/lista_contactos.html')
+    contactos = contacto.objects.all()
+    return render(request, r'inicio/lista_contactos.html', {'contacto': contactos})
 
