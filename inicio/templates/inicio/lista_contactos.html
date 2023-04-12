@@ -1,20 +1,40 @@
-{% extends 'inicio/contact.html' %}
+{% extends 'inicio/base.html' %}
 
-{% block title_head %}
-<title>Lista de Contactos</title>
-{% endblock title_head %}
+{% block title %}
+  Lista de Contactos
+{% endblock title %}
 
-{% block contact_h1 %}
-<h1>Lista de Contactos</h1>
-{% endblock contact_h1 %}
-
-
-{% block contact_p %}
-<p>Muchas Gracias por contactarte con Nosotros</p>
-{% endblock contact_p %}
-
-{% block contenido %}
-<table>
-    {{formulario}}
-</table>
-{% endblock contenido %}
+{% block content %}
+  <h1>Lista de Contactos</h1>
+  <p>Muchas Gracias por contactarte con Nosotros</p>
+<p>
+    <form action={% url 'inicio:lista_contactos' %}>
+        {{formulario}}
+        <button>Buscar</button>
+    </form>
+</p>
+  {% if contacto %}
+  <table>
+      <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Teléfono</th>
+              <th>Correo electrónico</th>
+              <th>Mensaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for contacto in contactos %}
+            <tr>
+                <td>{{ contacto.name }}</td>
+                <td>{{ contacto.phone }}</td>
+                <td>{{ contacto.email }}</td>
+                <td>{{ contacto.message }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2>No hay contactos por el momento.</h2>
+    {% endif %}
+{% endblock content %}

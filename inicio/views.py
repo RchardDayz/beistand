@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.template import Template, Context, loader
 from django.http import HttpResponse
 from inicio.models import contacto
-from inicio.forms import CreacionFormularioContacto
+from inicio.forms import CreacionFormularioContacto, BuscarContacto
 
 # Create your views here.
 
@@ -17,10 +17,10 @@ def crear_contacto(request):
         if formulario.is_valid():
             datos_correctos = formulario.cleaned_data
             datos = contacto(
-                name=datos_correctos['id'], 
-                phone=datos_correctos['id'], 
-                email=datos_correctos['id'],
-                message=datos_correctos['id'],
+                name=datos_correctos['name'], 
+                phone=datos_correctos['phone'], 
+                email=datos_correctos['email'],
+                message=datos_correctos['message'],
                 )
             datos.save()
             
@@ -30,6 +30,13 @@ def crear_contacto(request):
     return render(request, r'inicio/contacto.html', {'formulario': formulario})
 
 def lista_contactos(request):
-    contactos = contacto.objects.all()
-    return render(request, r'inicio/lista_contactos.html', {'contacto': contactos})
+    nombre_a_buscar = request.GET.get('name', None)
+    
+    if nombre_a_buscar:
+        contactos = contacto.objects.filter(name__icontains=nombre_a_buscar)
+    else:
+        contactos = contacto.objects.all()
+    
+    formulario_busqueda = BuscarContacto()
+    return render(request, r'inicio/lista_contactos.html', {'contactos': contactos})
 

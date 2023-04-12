@@ -8,6 +8,9 @@ class contacto(models.Model):
     email = models.EmailField(max_length=50)
     message = models.CharField(max_length=500)
     
+    def __str__(self):
+        return f'nombre {self.name}, Telefono {self.phone}, e-mail {self.email}, mensaje {self.message}'
+    
     
     
     
