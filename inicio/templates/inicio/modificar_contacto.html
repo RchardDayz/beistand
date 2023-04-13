@@ -1,0 +1,22 @@
+{% extends 'inicio/contacto.html' %}
+
+{% block title_head %}
+<title>Modficar Contacto</title>
+{% endblock title_head %}
+
+{% block contactact_h1 %}
+<h1 class="fw-bolder">Contacto Modificado</h1>
+{% endblock contactact_h1 %}
+
+{% block contenido %}
+<p>{{formulario.error}}</p>
+
+
+<form action={% url 'inicio:modificar_contacto' id %}method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock contenido %}

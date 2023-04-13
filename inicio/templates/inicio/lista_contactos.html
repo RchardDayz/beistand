@@ -13,6 +13,7 @@
         <button>Buscar</button>
     </form>
 </p>
+
   {% if contacto %}
   <table>
       <thead>
@@ -21,6 +22,7 @@
               <th>Teléfono</th>
               <th>Correo electrónico</th>
               <th>Mensaje</th>
+              <th>Id</th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,14 @@
                 <td>{{ contacto.phone }}</td>
                 <td>{{ contacto.email }}</td>
                 <td>{{ contacto.message }}</td>
+                <td>{{ contacto.id }}</td>
+                <button>
+                    <a class="navbar-brand" href={% url 'inicio:modificar_contacto' contacto.id %}>Modificar</a>
+                </button>
+                <button>
+                    <a class="navbar-brand" href={% url 'inicio:eliminar_contacto' contacto.id %}>Eliminar</a>
+                </button>
+
             </tr>
             {% endfor %}
         </tbody>
