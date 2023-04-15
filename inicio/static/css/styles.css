@@ -539,6 +539,7 @@ progress {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
   line-height: 1.2;
+  font-family: "Times New Roman", serif;
 }
 @media (min-width: 1200px) {
   .display-5 {
@@ -6694,6 +6695,8 @@ textarea.form-control-lg {
   background-color: RGBA(33, 37, 41, var(--bs-bg-opacity, 1)) !important;
 }
 
+
+
 .link-primary {
   color: #0d6efd !important;
 }
@@ -8162,6 +8165,18 @@ textarea.form-control-lg {
 .bg-dark {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-azul-rey {
+  --bs-azul-rey-rgb: 0, 116, 217; /* Color azul rey en formato RGB */
+  --bs-bg-opacity: 1; /* Opacidad del fondo */
+  background-color: rgba(var(--bs-azul-rey-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-azul-beistand {
+  --bs-azul-beistand-rgb: 0, 40, 92; /* Color azul rey en formato RGB */
+  --bs-bg-opacity: 1; /* Opacidad del fondo */
+  background-color: rgba(var(--bs-azul-beistand-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-black {
