@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Modern Business - Start Bootstrap Template</title>
+        <title>Beistand: Acerca de Nosotros</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -19,15 +19,15 @@
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
-                    <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                    {% comment %} <a class="navbar-brand" href="index.html">Start Bootstrap</a> {% endcomment %}
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                            <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
-                            <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:inicio' %}>Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:about' %}>About</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:servicios' %}>Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:contacto' %}>Contact</a></li>
+                            {% comment %} <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownBlog">
@@ -40,7 +40,7 @@
                                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownPortfolio">
                                     <li><a class="dropdown-item" href="portfolio-overview.html">Portfolio Overview</a></li>
                                     <li><a class="dropdown-item" href="portfolio-item.html">Portfolio Item</a></li>
-                                </ul>
+                                </ul> {% endcomment %}
                             </li>
                         </ul>
                     </div>
@@ -53,15 +53,18 @@
                         <div class="col-lg-8 col-xxl-6">
                             <div class="text-center my-5">
                                 <h1 class="fw-bolder mb-3">Nuestra misión es brindar seguridad integral a nuestros clientes para proteger su tranquilidad y bienestar.</h1>
-                                <p class="lead fw-normal text-muted mb-4">En Beistand, ofrecemos servicios para proyectos de seguridad desde cero o para mejorar sistemas de seguridad ya existentes.</p>
-                                <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story</a>
+                                <p class="lead fw-normal text-muted mb-4">Bienvenidos a Beistand, una empresa dedicada a brindar servicios de seguridad integral a nuestros clientes. Nuestra empresa se especializa en el diseño de arquitectura de seguridad, la asesoría de certificación de seguridad, los estudios socioeconómicos, las investigaciones privadas, los proyectos de seguridad, las capacitaciones al personal de seguridad, los servicios de ciberseguridad y el cumplimiento normativo.</p>
+                                <p class="lead fw-normal text-muted mb-4">Nuestro equipo de profesionales altamente capacitados y experimentados trabajan para brindar soluciones de seguridad personalizadas para cada uno de nuestros clientes, asegurando la protección de sus bienes y la tranquilidad de su entorno.</p>
+                                <p class="lead fw-normal text-muted mb-4">En Beistand, creemos que la seguridad es un derecho fundamental de todos los individuos y empresas. Es por eso que nos comprometemos a ofrecer un servicio de calidad que se adapte a las necesidades de cada cliente, necesidad y protección en todo momento.</p>
+                                <p class="lead fw-normal text-muted mb-4">¡Confíe en nosotros para mantener su seguridad y la de su empresa al más alto nivel!</p>
+                                {% comment %} <a class="btn btn-primary btn-lg" href="#scroll-target">Read our story</a> {% endcomment %}
                             </div>
                         </div>
                     </div>
                 </div>
             </header>
             <!-- About section one-->
-            <section class="py-5 bg-light" id="scroll-target">
+            {% comment %} <section class="py-5 bg-light" id="scroll-target">
                 <div class="container px-5 my-5">
                     <div class="row gx-5 align-items-center">
                         <div class="col-lg-6"><img class="img-fluid rounded mb-5 mb-lg-0" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
@@ -123,12 +126,12 @@
                     </div>
                 </div>
             </section>
-        </main>
+        </main> {% endcomment %}
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto"><div class="small m-0 text-white">Copyright &copy; www.beistand.com.mx</div></div>
                     <div class="col-auto">
                         <a class="link-light small" href="#!">Privacy</a>
                         <span class="text-white mx-1">&middot;</span>

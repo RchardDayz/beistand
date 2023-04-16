@@ -3,6 +3,8 @@ from django.template import Template, Context, loader
 from django.http import HttpResponse
 from inicio.models import contacto
 from inicio.forms import CreacionFormularioContacto, BuscarContacto, ModificarFormularioContacto
+from django.views.generic import TemplateView
+
 
 # Create your views here.
 
@@ -69,5 +71,12 @@ def modificar_contacto(request, id):
         'message':  contacto_a_modificar.message,
     })
     return render(request, 'inicio/modificar_contacto.html', {'formulario': formulario, 'id':id})
+
+class about(TemplateView):
+    template_name = "inicio/about.html"
     
+class servicios(TemplateView):
+    template_name = "inicio/servicios.html"
+
+
 

@@ -22,10 +22,10 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                            <li class="nav-item"><a class="nav-link" href="about.html">Acerca de Nosotros</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contacto">Contacto</a></li>
-                            {% comment %} <li class="nav-item"><a class="nav-link" href="pricing.html">Precios</a></li> {% endcomment %}
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:inicio' %}>Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:about' %}>Acerca de Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:servicios' %}>Servicios</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:contacto' %}>Contacto</a></li>
                             {% comment %} <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li> {% endcomment %}
                             {% comment %} <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -54,8 +54,8 @@
                                 <h1 class="display-5 fw-bolder text-white mb-2">En Beistand nos dedicamos a brindarte seguridad</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">Seguridad en tu empresa, en tu negocio, en tus proyectos en General, protegete de los criminales y cibercriminales</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-outline-light btn-lg px-4 me-sm-3" href="#features">Let's Get Started</a>
-                                    <a class="btn btn-outline-light btn-lg px-4" href="#!">Learn More</a>
+                                    <a class="btn btn-outline-light btn-lg px-4 me-sm-3" href={% url 'inicio:servicios' %}>Let's Get Started</a>
+                                    <a class="btn btn-outline-light btn-lg px-4" href={% url 'inicio:about' %}>Learn More</a>
                                 </div>
                             </div>
                         </div>
@@ -191,11 +191,11 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Call to action--> {% endcomment %}
+                    <!-- Call to action--> 
                     
                 </div>
             </section>
-        </main>
+        </main>{% endcomment %}
         <!-- Footer-->
         <footer class="bg-dark py-4 mt-auto">
             <div class="container px-5">
