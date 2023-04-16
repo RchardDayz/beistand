@@ -30,16 +30,18 @@
         <div class="row">
             <div class="col col-md-6 d-flex align-items-center">
 		        <div class="texto-izquierda">
-			        <h1>Investigaciones</h1>
+			        <h1 class="mt-0">Investigaciones</h1>
 			        <p>Texto de ejemplo. Aquí podrías agregar una descripción de la empresa o información relevante.</p>
 			        <a class="btn btn-outline-light btn-lg px-4" href={% url 'inicio:contacto' %}>Contactanos</a>
                 </div>
             </div>
         </div>
-		<div class="imagen-derecha">
-			{% comment %} <img src="ruta-de-la-imagen.jpg" alt="Imagen de ejemplo"> {% endcomment %}
-            <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
-		</div>
+        <div class="col col-md-6"> <!--Esta parte se agrego-->
+            <div class="imagen-derecha">
+                {% comment %} <img src="ruta-de-la-imagen.jpg" alt="Imagen de ejemplo"> {% endcomment %}
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
+            </div>
+        </div> <!--Esta parte se agrego-->
 	</div>
     <!-- Footer-->
     <footer class="bg-dark py-4 mt-auto">
