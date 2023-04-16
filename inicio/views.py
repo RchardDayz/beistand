@@ -77,6 +77,9 @@ class about(TemplateView):
     
 class servicios(TemplateView):
     template_name = "inicio/servicios.html"
+    
+class investigaciones(TemplateView):
+    template_name = "inicio/investigaciones.html"
 
 
 

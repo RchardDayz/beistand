@@ -10861,3 +10861,29 @@ html {
   background-repeat: no-repeat;
   min-height: 15rem;
 }
+
+/* Estilos para el contenedor principal */
+.contenedor {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 50px 20px;
+}
+
+/* Estilos para la parte izquierda */
+.texto-izquierda {
+	flex: 2;
+	color: #FFFFFF; /* Color blanco */
+	text-align: left;
+}
+
+/* Estilos para la parte derecha */
+.imagen-derecha {
+	flex: 1;
+	position: sticky;
+	top: 0;
+	right: 0;
+}
