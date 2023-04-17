@@ -10894,7 +10894,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: #f5f5f5; /* cambia esto al color de fondo que desees para tu pie de página */
+  background-color: rgb(var(--bs-dark-rgb)); /* cambia esto al color de fondo que desees para tu pie de página */
 }
 
 .container {
