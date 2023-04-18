@@ -10894,9 +10894,19 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
+  margin-top: -50px;
   background-color: rgb(var(--bs-dark-rgb)); /* cambia esto al color de fondo que desees para tu pie de página */
 }
 
 .container {
+  margin-bottom: 0;
+}
+
+header {
+  padding-bottom: 50px;
+  border-bottom: 5px solid var(--azul-beistand);
+}
+
+.bg-azul-beistand {
   margin-bottom: 0;
 }
