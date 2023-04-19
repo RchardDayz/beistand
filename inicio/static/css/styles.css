@@ -10907,10 +10907,13 @@ footer {
 }
 
 header {
-  padding-bottom: 50px;
-  border-bottom: 5px solid var(--azul-beistand);
-  padding: 0;
+  padding-bottom: 0;
+  border-bottom: 0;
+  height: auto !important;
 }
-  
+
+header, footer {
+  margin: 0;
+}
 
 
