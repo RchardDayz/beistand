@@ -102,6 +102,7 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  padding: 0;
 }
 
 hr {
@@ -8177,6 +8178,7 @@ textarea.form-control-lg {
   --bs-azul-beistand-rgb: 0, 40, 92; /* Color azul rey en formato RGB */
   --bs-bg-opacity: 1; /* Opacidad del fondo */
   background-color: rgba(var(--bs-azul-beistand-rgb), var(--bs-bg-opacity)) !important;
+  margin: 0;
 }
 
 .bg-black {
@@ -10896,6 +10898,8 @@ footer {
   width: 100%;
   margin-top: -50px;
   background-color: rgb(var(--bs-dark-rgb)); /* cambia esto al color de fondo que desees para tu pie de página */
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -10905,8 +10909,8 @@ footer {
 header {
   padding-bottom: 50px;
   border-bottom: 5px solid var(--azul-beistand);
+  padding: 0;
 }
+  
 
-.bg-azul-beistand {
-  margin-bottom: 0;
-}
+
