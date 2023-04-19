@@ -2,7 +2,9 @@
 <html lang="en">
     {% load static %}
 <head>
+    {% block Title %}
 	<title>Beistand: Investigaciones</title>
+    {% endblock Title %}
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href={% static 'css/styles.css' %} rel="stylesheet" />
@@ -26,17 +28,23 @@
 <body class="bg-azul-beistand py-5">
 	<div class="container px-5">
         <div class="row">
-            <div class="col col-md-6 d-flex align-items-center">
+            <div class="col col-md-6 d-flex justify-content-start align-items-start">
 		        <div class="texto-izquierda">
-			        <h1 class="mt-0">Investigaciones</h1>
-			        <p>Texto de ejemplo. Aquí podrías agregar una descripción de la empresa o información relevante.</p>
+                    {% block body_h1 %}
+			        <h1 class="mt-3">Investigaciones</h1>
+                    {% endblock body_h1 %}
+			        {% block body_p %}
+                    <p>Texto de ejemplo. Aquí podrías agregar una descripción de la empresa o información relevante.</p>
+                    {% endblock body_p %}
 			        <a class="btn btn-outline-light btn-lg px-4" href={% url 'inicio:contacto' %}>Contactanos</a>
                 </div>
             </div>
         </div>
-        <div class="col col-md-6"> <!--Esta parte se agrego-->
+        <div class="col col-md-6 d-flex justify-content-end"> <!--Esta parte se agrego-->
             <div class="imagen-derecha">
+                {% block img %}
                 {% comment %} <img src="ruta-de-la-imagen.jpg" alt="Imagen de ejemplo"> {% endcomment %}
+                {% endblock img %}
                 <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="https://dummyimage.com/600x400/343a40/6c757d" alt="..." /></div>
             </div>
         </div> <!--Esta parte se agrego-->
