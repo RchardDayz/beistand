@@ -6,7 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        {% block title %}
         <title>Beistand: Inicio</title>
+        {% endblock title %}
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -24,8 +26,19 @@
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item"><a class="nav-link" href={% url 'inicio:inicio' %}>Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'inicio:about' %}>Acerca de Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:lista_contactos' %}>Contactos</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'inicio:servicios' %}>Servicios</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'inicio:contacto' %}>Contacto</a></li>
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.informacionextra.avatar %}
+                            <img src={{request.user.informacionextra.avatar.url}} alt="" height="40px">
+                            {% endif %}
+                            <a href={% url 'usuarios:editar_perfil' %}>{{request.user.username}}</a>
+                            <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar sesion</a>
+                            {% else %}
+                            <a class="btn btn-primary" href={% url 'usuarios:login' %}>Inicio sesion</a>
+                            <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Registrarse</a>
+                            {% endif %}
                             {% comment %} <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas Frecuentes</a></li> {% endcomment %}
                             {% comment %} <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -46,6 +59,7 @@
                 </div>
             </nav>
             <!-- Header-->
+            {% block header %}
             <header class="bg-azul-beistand py-5">
                 <div class="container px-5">
                     <div class="row gx-5 align-items-center justify-content-center">
@@ -63,6 +77,9 @@
                     </div>
                 </div>
             </header>
+            {% endblock header %}
+            {% block contenido %}
+            {% endblock contenido %}
             <!-- Features section-->
              {% comment %} <section class="py-5" id="features">
                 <div class="container px-5 my-5">

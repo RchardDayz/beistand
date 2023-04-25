@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+                    <title>Editar Perfil</title>
+{% endblock title %}
+
+{% block header %}
+                    <h1>Editar Perfil</h1>
+{% endblock header %}
+
+{% block contenido %}
+
+{% if formulario.errors %}
+<p style="color: white">Hay errores</p>
+{% endif %}
+
+<form action='' method="post" enctype='multipart/form-data'>
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button type='button'><a class="navbar-brand" href={% url 'usuarios:cambio_contrasenia' %}>Cambiar contrasenia</a></button>
+    <button>Guardar cambios</button>
+</form>
+{% endblock contenido %}

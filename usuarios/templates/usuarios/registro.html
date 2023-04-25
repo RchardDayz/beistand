@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+                    <title>Registro</title>
+{% endblock title %}
+
+{% block header %}
+                    <h1>Registro</h1>
+{% endblock header %}
+
+{% block contenido %}
+
+{% if formulario.errors %}
+<p style="color: white">Hay errores</p>
+{% endif %}
+
+<form action={% url 'usuarios:registro' %} method="post">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Registrarse</button>
+</form>
+{% endblock contenido %}

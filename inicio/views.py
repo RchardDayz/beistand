@@ -4,6 +4,15 @@ from django.http import HttpResponse
 from inicio.models import contacto
 from inicio.forms import CreacionFormularioContacto, BuscarContacto, ModificarFormularioContacto
 from django.views.generic import TemplateView
+from datetime import datetime
+from django.urls import reverse_lazy
+
+
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -45,10 +54,11 @@ def lista_contactos(request):
 def eliminar_contacto(request, id):
     contacto_a_eliminar = contacto.objects.get(id=id)
     contacto_a_eliminar.delete()
-    return redirect('inicio:lista_contactos')
+    return redirect('inicio:lista_contactos.html')
 
 def modificar_contacto(request, id):
     contacto_a_modificar = contacto.objects.get(id=id)
+    
     if request.method == 'POST':
         formulario = ModificarFormularioContacto(request.POST)
         if formulario.is_valid():
@@ -80,6 +90,10 @@ class servicios(TemplateView):
     
 class investigaciones(TemplateView):
     template_name = "inicio/investigaciones2.html"
+    
+class MostrarContacto(DetailView):
+    model = contacto
+    template_name = 'inicio/mostrar_contacto.html'
 
 
 

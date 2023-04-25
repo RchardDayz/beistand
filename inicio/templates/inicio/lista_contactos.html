@@ -4,9 +4,10 @@
   Lista de Contactos
 {% endblock title %}
 
-{% block content %}
+{% block contentenido %}
   <h1>Lista de Contactos</h1>
   <p>Muchas Gracias por contactarte con Nosotros</p>
+  <a class= "navbar-brand" href={% url 'inicio:crear_contacto' %}>Crear Contacto</a>
 <p>
     <form action={% url 'inicio:lista_contactos' %}>
         {{formulario}}
@@ -33,6 +34,7 @@
                 <td>{{ contacto.email }}</td>
                 <td>{{ contacto.message }}</td>
                 <td>{{ contacto.id }}</td>
+                <a class="navbar-brand" href={% url 'mostrar_contacto' contacto.id %}>{{contacto}}</a>
                 <button>
                     <a class="navbar-brand" href={% url 'inicio:modificar_contacto' contacto.id %}>Modificar</a>
                 </button>
@@ -47,4 +49,4 @@
     {% else %}
     <h2>No hay contactos por el momento.</h2>
     {% endif %}
-{% endblock content %}
+{% endblock contentenido %}

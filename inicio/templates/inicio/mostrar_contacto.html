@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Contacto</title>
+{% endblock title %}
+
+{% block header %}
+<h1>{{contacto}}</h1>
+{% endblock header %}
+
+
+{% block contenido %}
+<ul>
+    <li>Nombre: {{contacto.nombre}}</li>
+    <li>Telefono: {{contacto.phone}}</li>
+    <li>Email: {{contacto.email}}</li>
+    <li>Mensaje: {{contacto.message}}</li>
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href={% url 'inicio:modificar_contacto' contacto.id %}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={% url 'inicio:eliminar_contacto' contacto.id %}>Eliminar</a>
+    </button>
+</p>
+{% endblock contenido %}
