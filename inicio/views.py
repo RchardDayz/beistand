@@ -38,7 +38,7 @@ def crear_contacto(request):
             return redirect('inicio:lista_contactos')
         
     formulario = CreacionFormularioContacto()
-    return render(request, r'inicio/contacto.html', {'formulario': formulario})
+    return render(request, 'inicio/contacto.html', {'formulario': formulario})
 
 def lista_contactos(request):
     nombre_a_buscar = request.GET.get('name', None)
@@ -49,7 +49,7 @@ def lista_contactos(request):
         contactos = contacto.objects.all()
     
     formulario_busqueda = BuscarContacto()
-    return render(request, r'inicio/lista_contactos.html', {'contactos': contactos})
+    return render(request, 'inicio/lista_contactos.html', {'contactos': contactos})
 
 def eliminar_contacto(request, id):
     contacto_a_eliminar = contacto.objects.get(id=id)
