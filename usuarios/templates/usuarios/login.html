@@ -5,7 +5,7 @@
 {% endblock title %}
 
 {% block header %}
-                    <h1>Inicio de sesion</h1>
+                    <h1 style="color: white">Inicio de sesion</h1>
 {% endblock header %}
 
 {% block contenido %}
@@ -16,7 +16,7 @@
 
 <form action={% url 'usuarios:login' %} method="post">
     {% csrf_token %}
-    <table>
+    <table style="color: white">
         {{formulario}}
     </table>
     <button>Iniciar Sesion</button>

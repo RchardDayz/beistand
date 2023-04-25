@@ -25,11 +25,21 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:inicio' %}>Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:about' %}>About</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:inicio' %}>Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:about' %}>Acerca de Nosotros</a></li>
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:lista_productos' %}>Productos</a></li>
                             <li class="nav-item"><a class="nav-link" href={% url 'inicio:servicios' %}>Servicios</a></li>
-                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:contacto' %}>Contact</a></li>
-
+                            <li class="nav-item"><a class="nav-link" href={% url 'inicio:contacto' %}>Contacto</a></li>
+                            {% if request.user.is_authenticated %}
+                            {% if request.user.informacionextra.avatar %}
+                            <img src={{request.user.informacionextra.avatar.url}} alt="" height="40px">
+                            {% endif %}
+                            <a href={% url 'usuarios:editar_perfil' %}>{{request.user.username}}</a>
+                            <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar sesion</a>
+                            {% else %}
+                            <a class="btn btn-primary" href={% url 'usuarios:login' %}>Inicio sesion</a>
+                            <a class="btn btn-primary" href={% url 'usuarios:registro' %}>Registrarse</a>
+                            {% endif %}     
                             {% comment %} <li class="nav-item"><a class="nav-link" href="/faq.html">FAQ</a></li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" id="navbarDropdownBlog" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Blog</a>
@@ -78,27 +88,27 @@
                                     <!-- Name input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                        <label for="name">Full name</label>
-                                        <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                        <label for="name">Nombre Completo</label>
+                                        <div class="invalid-feedback" data-sb-feedback="name:required">Un nombre es Requerido</div>
                                     </div>
                                     <!-- Email address input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                        <label for="email">Email address</label>
-                                        <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                        <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                        <label for="email">Direccion de Email</label>
+                                        <div class="invalid-feedback" data-sb-feedback="email:required">Un mail es Requerido.</div>
+                                        <div class="invalid-feedback" data-sb-feedback="email:email">El Email no es valido</div>
                                     </div>
                                     <!-- Phone number input-->
                                     <div class="form-floating mb-3">
                                         <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                        <label for="phone">Phone number</label>
-                                        <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                        <label for="phone">Numero Telefonico</label>
+                                        <div class="invalid-feedback" data-sb-feedback="phone:required">Un numero telefonico es requerido.</div>
                                     </div>
                                     <!-- Message input-->
                                     <div class="form-floating mb-3">
                                         <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                        <label for="message">Message</label>
-                                        <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                        <label for="message">Mensaje</label>
+                                        <div class="invalid-feedback" data-sb-feedback="message:required">Un Mensaje es Requerido.</div>
                                     </div>
                                     <!-- Submit success message-->
                                     <!---->

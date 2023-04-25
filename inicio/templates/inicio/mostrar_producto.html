@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Producto</title>
+{% endblock title %}
+
+{% block header %}
+<h1 style="color: white">{{producto}}</h1>
+{% endblock header %}
+
+
+{% block contenido %}
+<ul style="color: white">
+    <li>Nombre: {{producto.nombre}}</li>
+    <li>fecha_alta: {{producto.fecha_alta}}</li>
+    <li>cant_pzas: {{producto.cant_pzas}}</li>
+    <li>descripcion: {{producto.descripcion}}</li>
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href={% url 'inicio:modificar_producto' producto.id %}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={% url 'inicio:eliminar_producto' producto.id %}>Eliminar</a>
+    </button>
+</p>
+{% endblock contenido %}

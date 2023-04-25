@@ -7,13 +7,21 @@ class BaseFormularioContacto(forms.Form):
     email = forms.EmailField(max_length=50)
     message = forms.CharField(max_length=500)
     
-class CreacionFormularioContacto(BaseFormularioContacto):
+class BaseFormularioProducto(forms.Form):
+    nombre = forms.CharField(max_length=20)
+    fecha_alta = forms.DateField()
+    cant_pzas = forms.IntegerField(required=False)
+    descripcion = forms.Textarea()
+    
+class MostrarFormularioProducto(BaseFormularioProducto):
     ...
     
-class BuscarContacto(BaseFormularioContacto):
-       name = forms.CharField(max_length=20, required=False)
-
+class CreacionFormularioProducto(BaseFormularioProducto):
+    ...
     
+class BuscarProducto(BaseFormularioProducto):
+       name = forms.CharField(max_length=20, required=False)  
 
-class ModificarFormularioContacto(BaseFormularioContacto):
+
+class ModificarFormularioProducto(BaseFormularioProducto):
     ...

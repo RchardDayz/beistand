@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Crear Producto</title>
+{% endblock title %}
+
+{% block header %}
+<h1 style="color: white">Crear Producto</h1>
+{% endblock header %}
+
+
+{% block contenido %}
+<form action={% url 'inicio:crear_producto' %} method="POST">
+    {% csrf_token %}
+    <table style="color: white">
+        {{formulario}}
+    </table>
+    <button>Crear</button>
+</form>
+{% endblock contenido %}

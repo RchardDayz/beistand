@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Modficar Producto</title>
+{% endblock title %}
+
+{% block header %}
+<h1 style="color: white" class="fw-bolder">Producto Modificado</h1>
+{% endblock header %}
+
+{% block contenido %}
+<p style="color: white">{{formulario.error}}</p>
+
+
+<form action={% url 'inicio:modificar_producto' id %}method="POST">
+    {% csrf_token %}
+    <table style="color: white">
+        {{formulario}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock contenido %}

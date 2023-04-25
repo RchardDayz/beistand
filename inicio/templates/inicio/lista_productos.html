@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Lista de Productos
+{% endblock title %}
+
+{% block contentenido %}
+  <h1 style="color: white">Lista de Productos</h1>
+  <p style="color: white">Muchas Gracias por contactarte con Nosotros</p>
+  <a style="color: white" class= "navbar-brand" href={% url 'inicio:crear_producto' %}>Crear Producto</a>
+<p>
+    <form style="color: white" action={% url 'inicio:lista_productos' %}>
+        {{formulario}}
+        <button>Buscar</button>
+    </form>
+</p>
+
+  {% if producto %}
+  <table style="color: white">
+      <thead>
+          <tr>
+              <th>Nombre</th>
+              <th>Fecha alta</th>
+              <th>Cantidad de piezas</th>
+              <th>Descripcion</th>
+              <th>Id</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto in productos %}
+            <tr>
+                <td>{{ producto.name }}</td>
+                <td>{{ producto.fecha_alta }}</td>
+                <td>{{ producto.cant_pzas }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.id }}</td>
+                <a style="color: white" class="navbar-brand" href={% url 'mostrar_producto' producto.id %}>{{producto}}</a>
+                <button>
+                    <a class="navbar-brand" href={% url 'inicio:modificar_producto' producto.id %}>Modificar</a>
+                </button>
+                <button>
+                    <a class="navbar-brand" href={% url 'inicio:eliminar_producto' producto.id %}>Eliminar</a>
+                </button>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h2>No hay Productos por el momento.</h2>
+    {% endif %}
+{% endblock contentenido %}
