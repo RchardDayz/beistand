@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 from datetime import datetime
 from django.urls import reverse_lazy
 
-
+from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -20,36 +20,16 @@ from django.contrib.auth.decorators import login_required
 def vista_principal(request):
     return render(request, 'inicio/index.html')
 
-# Machote de la funcion
-def crear_producto(request):
-    if request.method == 'POST':
-        formulario = CreacionFormularioProducto(request.POST)
-        
-        if formulario.is_valid():
-            datos_correctos = formulario.cleaned_data
-            datos = Producto(
-                nombre=datos_correctos['nombre'], 
-                fecha_alta=datos_correctos['fecha'], 
-                cant_pzas=datos_correctos['cant_pzas'],
-                descripcion=datos_correctos['descripcion'],
-                )
-            datos.save()
-            
-            return redirect('inicio:lista_productos')
-        
-    formulario = CreacionFormularioProducto()
-    return render(request, 'inicio/lista_productos.html', {'formulario': formulario})
+class CrearProducto(CreateView):
+    model = Producto
+    template_name = "inicio/crear_producto.html"
+    success_url= reverse_lazy('inicio:lista_productos')
+    fields= ['nombre', 'fecha_alta', 'cant_pzas', 'descripcion']
 
-def lista_productos(request):
-    nombre_a_buscar = request.GET.get('name', None)
-    
-    if nombre_a_buscar:
-        productos = Producto.objects.filter(name__icontains=nombre_a_buscar)
-    else:
-        productos = Producto.objects.all()
-    
-    formulario_busqueda = BuscarProducto()
-    return render(request, 'inicio/lista_productos.html', {'producto': productos, 'formulario': formulario_busqueda})
+
+class ListaProductos(ListView):
+    model = Producto
+    template_name = "inicio/lista_productos.html"
 
 
 class EliminarProducto(LoginRequiredMixin, DeleteView):

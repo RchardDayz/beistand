@@ -20,7 +20,7 @@ class CreacionFormularioProducto(BaseFormularioProducto):
     ...
     
 class BuscarProducto(BaseFormularioProducto):
-       name = forms.CharField(max_length=20, required=False)  
+       nombre = forms.CharField(max_length=20, required=False)  
 
 
 class ModificarFormularioProducto(BaseFormularioProducto):

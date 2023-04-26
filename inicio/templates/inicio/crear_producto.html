@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Beistand: Crear Producto</title>
+    Beistand: Crear Producto
 {% endblock title %}
 
 {% block header %}
-<h1 style="color: white">Crear Producto</h1>
+    <h1 style="color: white">Crear Producto</h1>
 {% endblock header %}
 
 
@@ -14,7 +14,7 @@
     {% csrf_token %}
     <table style="color: white">
         {{form.media}}
-        {{formulario}}
+        {{form}}
     </table>
     <button>Crear</button>
 </form>
