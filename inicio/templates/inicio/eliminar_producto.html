@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Beistand: Eliminar Producto</title>
+{% endblock title %}
+
+{% block header %}
+<h1 style="color: white">Eliminar Producto</h1>
+{% endblock header %}
+
+
+{% block contenido %}
+<form action={% url 'inicio:eliminar_producto' producto.id %} method="POST">
+    {% csrf_token %}
+    <p style="color: white">Desea realmente eliminar el Producto {{producto}}</p>
+    <button>Eliminar</button>
+</form>
+{% endblock contenido %}

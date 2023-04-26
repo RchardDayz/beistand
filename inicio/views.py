@@ -51,36 +51,19 @@ def lista_productos(request):
     formulario_busqueda = BuscarProducto()
     return render(request, 'inicio/lista_productos.html', {'producto': productos, 'formulario': formulario_busqueda})
 
-def eliminar_producto(request, id):
-    contacto_a_eliminar = Producto.objects.get(id=id)
-    contacto_a_eliminar.delete()
-    return redirect('inicio:lista_productos.html')
 
-def modificar_producto(request, id):
-    contacto_a_modificar = Producto.objects.get(id=id)
+class EliminarProducto(LoginRequiredMixin, DeleteView):
+    model = Producto
+    template_name = "inicio/eliminar_producto.html"
+    success_url= reverse_lazy('inicio:lista_productos.html')
     
-    if request.method == 'POST':
-        formulario = ModificarFormularioProducto(request.POST)
-        if formulario.is_valid():
-            data_limpia = formulario.cleaned_data
-            
-            contacto_a_modificar.nombre = data_limpia['nombre']
-            contacto_a_modificar.fecha_alta = data_limpia['fecha_alta']
-            contacto_a_modificar.cant_pzas = data_limpia['cant_pazas']
-            contacto_a_modificar.descripcion = data_limpia['descripcion']
-            
-            contacto_a_modificar.save()
-            return redirect('inicio:lista_productos')
-        else:
-            return render(request, 'inicio/modificar_producto.html', {'formulario': formulario, 'id':id})
-           
-    formulario = ModificarFormularioProducto(initial={
-        'nombre':  contacto_a_modificar.nombre,
-        'fecha_alta':  contacto_a_modificar.fecha_alta,
-        'cant_pzas':  contacto_a_modificar.cant_pzas,
-        'descripcion':  contacto_a_modificar.descripcion,
-    })
-    return render(request, 'inicio/modificar_producto.html', {'formulario': formulario, 'id':id})
+
+class ModificarProducto(LoginRequiredMixin, UpdateView):
+    model = Producto
+    template_name = "inicio/modificar_producto.html"
+    success_url= reverse_lazy("inicio:lista_producto/")
+    fields= ['nombre', 'fecha_alta', 'cant_pazas', 'descripcion']
+    
 
 class about(TemplateView):
     template_name = "inicio/about.html"
