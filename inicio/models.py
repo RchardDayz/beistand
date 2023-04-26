@@ -1,4 +1,5 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 
@@ -16,7 +17,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=20)
     fecha_alta = models.DateField()
     cant_pzas = models.IntegerField(null=True)
-    descripcion = models.TextField()
+    descripcion = RichTextField()
     
     def __str__(self):
         return f'Productos {self.nombre} {self.fecha_alta} {self.cant_pzas} {self.descripcion}'

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Crear Producto</title>
+<title>Beistand: Crear Producto</title>
 {% endblock title %}
 
 {% block header %}
@@ -13,6 +13,7 @@
 <form action={% url 'inicio:crear_producto' %} method="POST">
     {% csrf_token %}
     <table style="color: white">
+        {{form.media}}
         {{formulario}}
     </table>
     <button>Crear</button>
