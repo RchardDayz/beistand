@@ -12,7 +12,7 @@
 <p style="color: white">{{formulario.error}}</p>
 
 
-<form action={% url 'inicio:modificar_producto' producto.id %}method="POST">
+<form action={% url 'inicio:modificar_producto' producto.id %} method="POST">
     {% csrf_token %}
     <table style="color: white">
         {{form.media}}
