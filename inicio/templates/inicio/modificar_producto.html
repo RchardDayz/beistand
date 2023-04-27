@@ -1,18 +1,18 @@
 {% extends 'base.html' %}
 
 {% block title %}
-<title>Beistand: Modficar Producto</title>
+        Beistand: Modficar Producto
 {% endblock title %}
 
 {% block header %}
-<h1 style="color: white" class="fw-bolder">Producto Modificado</h1>
+<h1 style="color: white" class="fw-bolder">Producto a Modificar</h1>
 {% endblock header %}
 
 {% block contenido %}
 <p style="color: white">{{formulario.error}}</p>
 
 
-<form action={% url 'inicio:modificar_producto' id %}method="POST">
+<form action={% url 'inicio:modificar_producto' producto.id %}method="POST">
     {% csrf_token %}
     <table style="color: white">
         {{form.media}}

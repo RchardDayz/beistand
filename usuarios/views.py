@@ -24,13 +24,13 @@ def login(request):
             return redirect('inicio:inicio')
         else:
             return render(request, 'usuarios/login.html', {'formulario': formulario})
-            
+         
+    formulario = AuthenticationForm()
+    return render(request, 'usuarios/login.html', {'formulario': formulario})
+   
 #===========================================================================================    
 #===========================================================================================
     
-    formulario = AuthenticationForm()
-    return render(request, 'usuarios/login.html', {'formulario': formulario})
-
 def registro(request):
     
     if request.method == "POST":

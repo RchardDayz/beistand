@@ -7,7 +7,7 @@
 {% block contenido %}
   <h1 style="color: white">Lista de Productos</h1>
   <button class= "btn btn-primary" style="color: white; border-color: white; background-color: #00285c" onclick="location.href='{% url 'inicio:crear_producto' %}'">Crear Producto</button>
-  {% if productos %}
+  {% if producto_list %}
     <table style="color: white">
         <thead>
             <tr>
@@ -19,15 +19,16 @@
             </tr>
         </thead>
             <tbody>
-                {% for producto in productos %}
+                {% for producto in producto_list %}
                 <tr>
                     <td>{{ producto.nombre }}</td>
                     <td>{{ producto.fecha_alta }}</td>
                     <td>{{ producto.cant_pzas }}</td>
                     <td>{{ producto.descripcion }}</td>
                     <td>{{ producto.id }}</td>
+                    <td>
                     <button>
-                        <a style="color: white" class="navbar-brand" href={% url 'mostrar_producto' producto.id %}>{{producto}}</a>
+                        <a class="navbar-brand" href={% url 'inicio:mostrar_producto' producto.id %}>Ver Producto</a>
                     </button>
                     <button>
                         <a class="navbar-brand" href={% url 'inicio:modificar_producto' producto.id %}>Modificar</a>
@@ -35,6 +36,7 @@
                     <button>
                         <a class="navbar-brand" href={% url 'inicio:eliminar_producto' producto.id %}>Eliminar</a>
                     </button>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>

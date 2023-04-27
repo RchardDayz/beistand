@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.template import Template, Context, loader
 from django.http import HttpResponse
 from inicio.models import contacto, Producto
-from inicio.forms import CreacionFormularioProducto, BuscarProducto, ModificarFormularioProducto, MostrarFormularioProducto, BaseFormularioContacto
+from inicio.forms import CreacionFormularioProducto, BaseFormularioContacto
 from django.views.generic import TemplateView
 from datetime import datetime
 from django.urls import reverse_lazy
@@ -43,7 +43,7 @@ class ListaProductos(ListView):
 class EliminarProducto(LoginRequiredMixin, DeleteView):
     model = Producto
     template_name = "inicio/eliminar_producto.html"
-    success_url= reverse_lazy('inicio:lista_productos.html')
+    success_url= reverse_lazy('inicio:lista_productos')
 
 #=======================================================================================
 #=======================================================================================
@@ -52,8 +52,8 @@ class EliminarProducto(LoginRequiredMixin, DeleteView):
 class ModificarProducto(LoginRequiredMixin, UpdateView):
     model = Producto
     template_name = "inicio/modificar_producto.html"
-    success_url= reverse_lazy("inicio:lista_producto/")
-    fields= ['nombre', 'fecha_alta', 'cant_pazas', 'descripcion']
+    success_url= reverse_lazy('inicio:lista_productos')
+    fields= ['nombre', 'fecha_alta', 'cant_pzas', 'descripcion']
 
 #=======================================================================================
 #=======================================================================================
