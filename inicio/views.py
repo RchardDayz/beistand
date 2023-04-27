@@ -20,22 +20,33 @@ from django.contrib.auth.decorators import login_required
 def vista_principal(request):
     return render(request, 'inicio/index.html')
 
-class CrearProducto(CreateView):
+#=======================================================================================
+#=======================================================================================
+
+class CrearProducto(LoginRequiredMixin, CreateView):
     model = Producto
     template_name = "inicio/crear_producto.html"
     success_url= reverse_lazy('inicio:lista_productos')
     fields= ['nombre', 'fecha_alta', 'cant_pzas', 'descripcion']
 
+#=======================================================================================
+#=======================================================================================
 
 class ListaProductos(ListView):
     model = Producto
     template_name = "inicio/lista_productos.html"
+
+#=======================================================================================
+#=======================================================================================
 
 
 class EliminarProducto(LoginRequiredMixin, DeleteView):
     model = Producto
     template_name = "inicio/eliminar_producto.html"
     success_url= reverse_lazy('inicio:lista_productos.html')
+
+#=======================================================================================
+#=======================================================================================
     
 
 class ModificarProducto(LoginRequiredMixin, UpdateView):
@@ -43,16 +54,28 @@ class ModificarProducto(LoginRequiredMixin, UpdateView):
     template_name = "inicio/modificar_producto.html"
     success_url= reverse_lazy("inicio:lista_producto/")
     fields= ['nombre', 'fecha_alta', 'cant_pazas', 'descripcion']
+
+#=======================================================================================
+#=======================================================================================
     
 
 class about(TemplateView):
     template_name = "inicio/about.html"
+
+#=======================================================================================
+#=======================================================================================
     
 class servicios(TemplateView):
     template_name = "inicio/servicios.html"
+
+#=======================================================================================
+#=======================================================================================
     
 class investigaciones(TemplateView):
     template_name = "inicio/investigaciones2.html"
+
+#=======================================================================================
+#=======================================================================================
     
 def crear_contacto(request):
     if request.method == 'POST':
@@ -73,6 +96,8 @@ def crear_contacto(request):
     formulario = BaseFormularioContacto()
     return render(request, 'inicio/contacto.html', {'formulario': formulario})
 
+#=======================================================================================
+#=======================================================================================
     
 class MostrarFormularioProducto(DetailView):
     model = Producto

@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block title %}
-    <title>Beistand: Productos</title>
+    Beistand: Productos
 {% endblock title %}
 
 {% block contenido %}
   <h1 style="color: white">Lista de Productos</h1>
-  <a style="color: white" class= "navbar-brand" href={% url 'inicio:crear_producto' %}>Crear Producto</a>
+  <button class= "btn btn-primary" style="color: white; border-color: white; background-color: #00285c" onclick="location.href='{% url 'inicio:crear_producto' %}'">Crear Producto</button>
   {% if productos %}
     <table style="color: white">
         <thead>
@@ -21,7 +21,7 @@
             <tbody>
                 {% for producto in productos %}
                 <tr>
-                    <td>{{ producto.name }}</td>
+                    <td>{{ producto.nombre }}</td>
                     <td>{{ producto.fecha_alta }}</td>
                     <td>{{ producto.cant_pzas }}</td>
                     <td>{{ producto.descripcion }}</td>

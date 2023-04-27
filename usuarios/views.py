@@ -6,13 +6,12 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
 from usuarios.models import InformacionExtra
-
+from django.contrib.auth.mixins import LoginRequiredMixin
 from usuarios.forms import MiFormularioDeCreacion, EdicionDatosUsuario
 
 # Create your views here.
 
 def login(request):
-    
     if request.method == 'POST':
         formulario = AuthenticationForm(request, data=request.POST)
         
@@ -26,6 +25,8 @@ def login(request):
         else:
             return render(request, 'usuarios/login.html', {'formulario': formulario})
             
+#===========================================================================================    
+#===========================================================================================
     
     formulario = AuthenticationForm()
     return render(request, 'usuarios/login.html', {'formulario': formulario})
@@ -33,7 +34,6 @@ def login(request):
 def registro(request):
     
     if request.method == "POST":
-        # formulario = UserCreationForm(request.POST)
         formulario = MiFormularioDeCreacion(request.POST)
         
         if formulario.is_valid():
@@ -42,10 +42,11 @@ def registro(request):
         else:
             return render(request, 'usuarios/registro.html', {'formulario': formulario})
             
-    
-    # formulario = UserCreationForm()
     formulario = MiFormularioDeCreacion()
     return render(request, 'usuarios/registro.html', {'formulario': formulario})
+
+#===========================================================================================
+#===========================================================================================
 
 @login_required
 def editar_perfil(request):
@@ -64,7 +65,9 @@ def editar_perfil(request):
     formulario = EdicionDatosUsuario(initial={'avatar': request.user.informacionextra.avatar}, instance=request.user)
     return render(request, 'usuarios/editar_perfil.html', {'formulario': formulario})
     
-    
-class CambioContrasenia(PasswordChangeView):
+#================================================================================================================
+#================================================================================================================
+
+class CambioContrasenia(LoginRequiredMixin,PasswordChangeView):
     template_name = 'usuarios/cambiar_contrasenia.html'
     success_url = reverse_lazy('usuarios:editar_perfil')
