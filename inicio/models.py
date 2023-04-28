@@ -10,7 +10,7 @@ class contacto(models.Model):
     message = models.TextField()
     
     def __str__(self):
-        return f'nombre {self.name}, Telefono {self.phone}, e-mail {self.email}, mensaje {self.message}'
+        return f'nombre: {self.name}, Telefono: {self.phone}, e-mail: {self.email}, mensaje: {self.message}'
     
     
 class Producto(models.Model):
@@ -20,5 +20,5 @@ class Producto(models.Model):
     descripcion = RichTextField()
     
     def __str__(self):
-        return f'Productos {self.nombre} {self.fecha_alta} {self.cant_pzas} {self.descripcion}'
+        return f'Producto: {self.nombre}, Fecha de Alta: {self.fecha_alta}, Cantidad de Piezas: {self.cant_pzas}, Descripcion: {self.descripcion}'
     
