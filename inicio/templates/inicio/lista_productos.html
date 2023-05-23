@@ -24,7 +24,7 @@
                     <td>{{ producto.nombre }}</td>
                     <td>{{ producto.fecha_alta }}</td>
                     <td>{{ producto.cant_pzas }}</td>
-                    <td>{{ producto.descripcion }}</td>
+                    <td>{{ producto.descripcion|safe }}</td>
                     <td>{{ producto.id }}</td>
                     <td>
                     <button>
