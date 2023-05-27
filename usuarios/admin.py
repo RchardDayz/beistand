@@ -1,7 +1,7 @@
 from django.contrib import admin
-from usuarios.models import InformacionExtra
+from usuarios.models import CustomUser, InformacionExtra
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser
+
 
 # Register your models here.
 
