@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login as django_login
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse_lazy
-from usuarios.models import InformacionExtra
+from usuarios.models import InformacionExtra, CustomUser
 from django.contrib.auth.mixins import LoginRequiredMixin
 from usuarios.forms import MiFormularioDeCreacion, EdicionDatosUsuario
 

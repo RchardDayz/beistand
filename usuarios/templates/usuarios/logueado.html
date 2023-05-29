@@ -8,12 +8,15 @@
                     <h1 style="color: white">Informacion Usuario</h1>
 {% endblock header %}
 
-{% block content %}
-  <h1>User Detail</h1>
-  <h2>Usuario: {{ user.username }}</h2>
-  <img src="{{ user.avatar.url }}" alt="Avatar de {{ user.username }}" width="100" height="100">
-  <p>Nombre: {{ user.first_name }} {{ user.last_name }}</p>
-  <p>Descripción: {{ user.description }}</p>
-  <p>Repositorio de GitHub: <a href="{{ user.github_repo }}">{{ user.github_repo }}</a></p>
-  <p>Email: {{ user.email }}</p>
+{% block contenido %}
+  <h1 style="color: white">Detalle del Usuario</h1>
+  <h2 style="color: white">Usuario: {{ user.username }}</h2>
+  {% if user.avatar.avatar %}
+    <img src="{{ user.avatar.url }}" alt="Avatar de {{ user.username }}" width="100" height="100">
+  {% endif %}
+  <p style="color: white">Nombre: {{ user.first_name }} {{ user.last_name }}</p>
+  <p style="color: white">Descripción: {{ user.description }}</p>
+  <p style="color: white">Repositorio de GitHub: <a href="https://github.com/RchardDayz">{{ user.first_name }}</a></p>
+  <p style="color: white">Email: {{ user.email }}</p>
+  <button type='button'><a class="navbar-brand" href={% url 'usuarios:editar_perfil' %}>Editar Perfil</a></button>
 {% endblock %}
