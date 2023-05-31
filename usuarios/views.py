@@ -77,5 +77,10 @@ class CambioContrasenia(LoginRequiredMixin,PasswordChangeView):
 
 @login_required
 def user_profile(request):
-    user = request.user
-    return render(request, 'usuarios/logueado.html', {'user': user})
+    if request.method == 'POST':
+        description = request.POST.get('description')
+        user = request.user
+        user.description = description
+        user.save()
+
+    return render(request, 'usuarios/logueado.html', {'user': request.user})
