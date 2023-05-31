@@ -15,6 +15,7 @@ class CustomUser(AbstractUser):
 class InformacionExtra(models.Model):
     avatar = models.ImageField(upload_to='avatares', null=True, blank=True)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    descripcion = models.TextField(null=True, blank=True)
     
     def __str__(self):
         return f'Usuario: {self.user}, Imagen: {self.avatar}'
