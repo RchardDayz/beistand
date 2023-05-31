@@ -12,6 +12,7 @@ class BaseFormularioProducto(forms.Form):
     fecha_alta = forms.DateField()
     cant_pzas = forms.IntegerField(required=False)
     descripcion = forms.Textarea()
+    imagen = forms.ImageField(required=False)
     
 class MostrarFormularioProducto(BaseFormularioProducto):
     ...

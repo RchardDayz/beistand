@@ -15,6 +15,7 @@
             <th>Fecha alta</th>
             <th>Cantidad de piezas</th>
             <th>Descripcion</th>
+            <th>Imagen</th>
             <th>Id</th>
             </tr>
         </thead>
@@ -25,17 +26,24 @@
                     <td>{{ producto.fecha_alta }}</td>
                     <td>{{ producto.cant_pzas }}</td>
                     <td>{{ producto.descripcion|safe }}</td>
+                    <td>
+                        {% if producto.imagen %}
+                        <img src="{{ producto.imagen.url }}" alt="Imagen del producto" style="max-width: 100px;">
+                        {% else %}
+                            No hay imagen
+                        {% endif %}
+                    </td>
                     <td>{{ producto.id }}</td>
                     <td>
-                    <button>
-                        <a class="navbar-brand" href={% url 'inicio:mostrar_producto' producto.id %}>Ver Producto</a>
-                    </button>
-                    <button>
-                        <a class="navbar-brand" href={% url 'inicio:modificar_producto' producto.id %}>Modificar</a>
-                    </button>
-                    <button>
-                        <a class="navbar-brand" href={% url 'inicio:eliminar_producto' producto.id %}>Eliminar</a>
-                    </button>
+                        <button>
+                            <a class="navbar-brand" href={% url 'inicio:mostrar_producto' producto.id %}>Ver Producto</a>
+                        </button>
+                        <button>
+                            <a class="navbar-brand" href={% url 'inicio:modificar_producto' producto.id %}>Modificar</a>
+                        </button>
+                        <button>
+                            <a class="navbar-brand" href={% url 'inicio:eliminar_producto' producto.id %}>Eliminar</a>
+                        </button>
                     </td>
                 </tr>
                 {% endfor %}

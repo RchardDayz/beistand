@@ -12,11 +12,30 @@
 <p style="color: white">{{formulario.error}}</p>
 
 
-<form action={% url 'inicio:modificar_producto' producto.id %} method="POST">
+<form action={% url 'inicio:modificar_producto' producto.id %} method="POST"  enctype="multipart/form-data">
     {% csrf_token %}
     <table style="color: white">
         {{form.media}}
-        {{form}}
+        <tr>
+            <td>{{ form.nombre.label_tag }}</td>
+            <td>{{ form.nombre }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.fecha_alta.label_tag }}</td>
+            <td>{{ form.fecha_alta }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.cant_pzas.label_tag }}</td>
+            <td>{{ form.cant_pzas }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.descripcion.label_tag }}</td>
+            <td>{{ form.descripcion }}</td>
+        </tr>
+        <tr>
+            <td>{{ form.imagen.label_tag }}</td>
+            <td>{{ form.imagen }}</td>
+        </tr>
     </table>
     <button>Modificar</button>
 </form>

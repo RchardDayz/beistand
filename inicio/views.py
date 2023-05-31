@@ -12,7 +12,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
-
+from django import forms
 
 
 # Create your views here.
@@ -53,7 +53,7 @@ class ModificarProducto(LoginRequiredMixin, UpdateView):
     model = Producto
     template_name = "inicio/modificar_producto.html"
     success_url= reverse_lazy('inicio:lista_productos')
-    fields= ['nombre', 'fecha_alta', 'cant_pzas', 'descripcion']
+    fields= ['nombre', 'fecha_alta', 'cant_pzas', 'descripcion', 'imagen']
 
 #=======================================================================================
 #=======================================================================================

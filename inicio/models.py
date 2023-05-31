@@ -18,7 +18,8 @@ class Producto(models.Model):
     fecha_alta = models.DateField()
     cant_pzas = models.IntegerField(null=True)
     descripcion = RichTextField()
+    imagen = models.ImageField(upload_to='productos', blank=True, null=True)
     
     def __str__(self):
-        return f'Producto: {self.nombre}, Fecha de Alta: {self.fecha_alta}, Cantidad de Piezas: {self.cant_pzas}, Descripcion: {self.descripcion}'
+        return f'Producto: {self.nombre}, Fecha de Alta: {self.fecha_alta}, Cantidad de Piezas: {self.cant_pzas}, Descripcion: {self.descripcion}, Imagen: {self.imagen}'
     
