@@ -34,6 +34,7 @@
                             {% if request.user.is_authenticated %}
                             {% if request.user.informacionextra.avatar %}
                             <img src={{request.user.informacionextra.avatar.url}} alt="" height="40px">
+                            <li class="nav-item"><a class="nav-link" href={% url 'mensajeria:index' %}>Mensajeria</a></li>
                             {% endif %}
                             <a href={% url 'usuarios:logueado' %}>{{request.user.username}}</a>
                             <a class="btn btn-primary" href={% url 'usuarios:logout' %}>Cerrar sesion</a>
