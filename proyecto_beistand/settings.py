@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'inicio',
     'usuarios',
     'ckeditor',
-    'mensajeria',
+    'mensajeria'
 ]
 
 MIDDLEWARE = [

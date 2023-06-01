@@ -1,6 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}
+                    Beistand: Mensajeria
+{% endblock title %}
+
+{% block header %}
+                    <h1 style="color: white">Chat</h1>
+{% endblock header %}
+
+{% block contenido %}
 <ul>
     {% for usuario in usuarios %}
       <li><a href="{% url 'mensajeria:detalle_usuario' usuario.id %}">{{ usuario.nombre }}</a></li>
     {% endfor %}
-  </ul>
+</ul>
+  {% endblock contenido %}
   

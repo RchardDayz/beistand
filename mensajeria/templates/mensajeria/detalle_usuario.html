@@ -1,6 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+                    Beistand: Chat
+{% endblock title %}
+
+{% block header %}
+                    <h1 style="color: white">Chat</h1>
+{% endblock header %}
+
+{% block contenido %}
+
 <h1>{{ usuario.nombre }}</h1>
 <form action="{% url 'mensajeria:enviar_mensaje' usuario.id %}" method="post">
   {% csrf_token %}
   <input type="text" name="mensaje">
   <button type="submit">Enviar mensaje</button>
 </form>
+
+{% endblock contenido %}
