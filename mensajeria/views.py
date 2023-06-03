@@ -19,4 +19,4 @@ def enviar_mensaje(request, usuario_id):
     usuario = get_object_or_404(CustomUser, pk=usuario_id)
     mensaje = request.POST['mensaje']
     # Aquí se implementa la lógica para guardar el mensaje en la base de datos
-    return HttpResponse(f"Mensaje enviado a {usuario.nombre}: {mensaje}")
+    return HttpResponse(f"Mensaje enviado a {usuario.username}: {mensaje}")

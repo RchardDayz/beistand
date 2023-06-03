@@ -11,7 +11,7 @@
 {% block contenido %}
 <ul>
     {% for usuario in usuarios %}
-      <li><a href="{% url 'mensajeria:detalle_usuario' usuario.id %}">{{ usuario.nombre }}</a></li>
+      <li><a href="{% url 'mensajeria:detalle_usuario' usuario.id %}">{{ usuario.username }}</a></li>
     {% endfor %}
 </ul>
   {% endblock contenido %}
